@@ -48,7 +48,7 @@ The baseline system demonstrates how reinforcement learning can be applied to ed
 
 ```bash
 # Train a basic Q-learning agent
-python rl_physics_agent.py
+uv run python rl_physics_agent.py
 
 # This will:
 # - Train for 100,000 episodes
@@ -60,7 +60,7 @@ python rl_physics_agent.py
 
 ```bash
 # Run the interactive demo
-python demo_rl_training.py
+uv run python demo_rl_training.py
 
 # Choose from options:
 # 1. Train new agent
@@ -77,7 +77,7 @@ python demo_rl_training.py
 export OPENAI_API_KEY="your-api-key-here"
 
 # Train with LLM integration
-python llm_rl_agent.py
+uv run python llm_rl_agent.py
 ```
 
 ## System Architecture
@@ -268,14 +268,14 @@ openai>=1.0.0  # For LLM integration
 
 Install with:
 ```bash
-pip install -r ../requirements.txt
+uv pip install -r ../requirements.txt
 ```
 
 ## Testing
 
 Run the test suite:
 ```bash
-python test_rl_system.py
+uv run python test_rl_system.py
 ```
 
 Tests cover:

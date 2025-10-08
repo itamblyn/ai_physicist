@@ -17,7 +17,7 @@ Quick start
 Run the generator to create a small sample dataset:
 
 ```bash
-python 04_unsolvable/generate_inconsistent_dataset.py \
+uv run python 04_unsolvable/generate_inconsistent_dataset.py \
   --count 50 \
   --seed 123 \
   --outdir 04_unsolvable/samples
@@ -77,7 +77,7 @@ Quick start
 -----------
 
 ```bash
-python 04_unsolvable/generate_solvability_dataset.py \
+uv run python 04_unsolvable/generate_solvability_dataset.py \
   --count 200 \
   --seed 42 \
   --target_chars 280 \

@@ -9,7 +9,7 @@ Quick start
 Run the generator to create a small sample dataset:
 
 ```bash
-python 03_extraneous_info_dataset/generate_extraneous_dataset.py \
+uv run python 03_extraneous_info_dataset/generate_extraneous_dataset.py \
   --count 100 \
   --seed 42 \
   --outdir 03_extraneous_info_dataset/samples

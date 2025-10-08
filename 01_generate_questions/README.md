@@ -126,7 +126,7 @@ def generate_kinetic_energy(self):
 
 #### Interactive Mode
 ```bash
-python physics_question_generator.py
+uv run python physics_question_generator.py
 ```
 
 Provides a menu-driven interface where users can:
@@ -137,7 +137,7 @@ Provides a menu-driven interface where users can:
 
 #### Demo Mode
 ```bash
-python demo_physics_questions.py
+uv run python demo_physics_questions.py
 ```
 
 Shows one example from each question type plus random samples.
@@ -264,22 +264,22 @@ agent, environment = train_llm_agent(
 #### **Basic RL Training**
 ```bash
 # Train a simple Q-learning agent
-python rl_physics_agent.py
+uv run python rl_physics_agent.py
 
 # Interactive demo
-python demo_rl_training.py
+uv run python demo_rl_training.py
 ```
 
 #### **LLM-Based Training**
 ```bash
 # Train with OpenAI API
-python llm_rl_agent.py
+uv run python llm_rl_agent.py
 ```
 
 #### **Demo and Analysis**
 ```bash
 # Full demo with plots
-python demo_rl_training.py
+uv run python demo_rl_training.py
 # Choose option 5 for full training with visualizations
 ```
 

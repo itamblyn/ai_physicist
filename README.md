@@ -50,7 +50,7 @@ ai_physicist/
 
 2. **Install dependencies**:
    ```bash
-   pip install -r requirements.txt
+   uv pip install -r requirements.txt
    ```
 
 3. **Set up OpenAI API** (optional, for LLM features):
@@ -198,7 +198,8 @@ We welcome contributions! Areas where help is needed:
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature-name`
 3. Make your changes and add tests
-4. Submit a pull request
+4. Install dependencies with: `uv pip install -r requirements.txt`
+5. Submit a pull request
 
 ## 📄 **License**
 
