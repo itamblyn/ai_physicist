@@ -7,6 +7,8 @@ model performance, and learning dynamics in the AI Physicist project.
 """
 
 import pickle
+import matplotlib
+matplotlib.use('Agg')  # Use non-interactive backend for saving files
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -55,7 +57,7 @@ class RLVisualizer:
                 model_files.append(file_path.name)
         return sorted(model_files)
     
-    def plot_training_progress(self, model_file: str = None, save_path: str = None):
+    def plot_training_progress(self, model_file: str = None, save_path: str = None, show_plot: bool = False):
         """Plot training progress for a specific model."""
         if model_file is None:
             model_files = self.find_model_files()
@@ -136,9 +138,12 @@ class RLVisualizer:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
             print(f"Training progress plot saved to {save_path}")
         
-        plt.show()
+        if show_plot:
+            plt.show()
+        else:
+            plt.close()  # Close the figure to free memory
     
-    def compare_models(self, model_files: List[str] = None, save_path: str = None):
+    def compare_models(self, model_files: List[str] = None, save_path: str = None, show_plot: bool = False):
         """Compare training progress across multiple models."""
         if model_files is None:
             model_files = self.find_model_files()
@@ -224,9 +229,12 @@ class RLVisualizer:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
             print(f"Model comparison plot saved to {save_path}")
         
-        plt.show()
+        if show_plot:
+            plt.show()
+        else:
+            plt.close()  # Close the figure to free memory
     
-    def plot_learning_curves(self, model_file: str = None, window_size: int = 50, save_path: str = None):
+    def plot_learning_curves(self, model_file: str = None, window_size: int = 50, save_path: str = None, show_plot: bool = False):
         """Plot smoothed learning curves with confidence intervals."""
         if model_file is None:
             model_files = self.find_model_files()
@@ -301,9 +309,12 @@ class RLVisualizer:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
             print(f"Learning curves plot saved to {save_path}")
         
-        plt.show()
+        if show_plot:
+            plt.show()
+        else:
+            plt.close()  # Close the figure to free memory
     
-    def analyze_q_table(self, model_file: str = None, save_path: str = None):
+    def analyze_q_table(self, model_file: str = None, save_path: str = None, show_plot: bool = False):
         """Analyze and visualize the Q-table from a trained model."""
         if model_file is None:
             model_files = self.find_model_files()
@@ -391,7 +402,10 @@ class RLVisualizer:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
             print(f"Q-table analysis plot saved to {save_path}")
         
-        plt.show()
+        if show_plot:
+            plt.show()
+        else:
+            plt.close()  # Close the figure to free memory
     
     def generate_performance_report(self, model_file: str = None, output_file: str = None) -> str:
         """Generate a comprehensive performance report for a model."""

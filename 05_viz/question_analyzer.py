@@ -8,6 +8,8 @@ in physics questions across different datasets.
 
 import json
 import re
+import matplotlib
+matplotlib.use('Agg')  # Use non-interactive backend for saving files
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -246,7 +248,7 @@ class QuestionAnalyzer:
         
         return analysis
     
-    def plot_question_difficulty_distribution(self, save_path: str = None):
+    def plot_question_difficulty_distribution(self, save_path: str = None, show_plot: bool = False):
         """Plot difficulty distribution across all datasets."""
         datasets = ['extraneous_supervised', 'extraneous_preference', 'unsolvable', 'solvability']
         
@@ -277,9 +279,12 @@ class QuestionAnalyzer:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
             print(f"Difficulty distribution plot saved to {save_path}")
         
-        plt.show()
+        if show_plot:
+            plt.show()
+        else:
+            plt.close()  # Close the figure to free memory
     
-    def plot_physics_concept_usage(self, save_path: str = None):
+    def plot_physics_concept_usage(self, save_path: str = None, show_plot: bool = False):
         """Plot usage of physics concepts across datasets."""
         datasets = ['extraneous_supervised', 'extraneous_preference', 'unsolvable', 'solvability']
         
@@ -336,9 +341,12 @@ class QuestionAnalyzer:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
             print(f"Physics concept usage plot saved to {save_path}")
         
-        plt.show()
+        if show_plot:
+            plt.show()
+        else:
+            plt.close()  # Close the figure to free memory
     
-    def plot_question_complexity_heatmap(self, save_path: str = None):
+    def plot_question_complexity_heatmap(self, save_path: str = None, show_plot: bool = False):
         """Create a heatmap showing question complexity by category and dataset."""
         datasets = ['extraneous_supervised', 'extraneous_preference', 'unsolvable', 'solvability']
         categories = ['kinematics', 'newton', 'energy', 'momentum', 'circuits']
@@ -394,9 +402,12 @@ class QuestionAnalyzer:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
             print(f"Complexity heatmap saved to {save_path}")
         
-        plt.show()
+        if show_plot:
+            plt.show()
+        else:
+            plt.close()  # Close the figure to free memory
     
-    def plot_text_length_analysis(self, save_path: str = None):
+    def plot_text_length_analysis(self, save_path: str = None, show_plot: bool = False):
         """Analyze and plot text length patterns across datasets."""
         datasets = ['extraneous_supervised', 'extraneous_preference', 'unsolvable', 'solvability']
         
@@ -443,7 +454,10 @@ class QuestionAnalyzer:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
             print(f"Text length analysis plot saved to {save_path}")
         
-        plt.show()
+        if show_plot:
+            plt.show()
+        else:
+            plt.close()  # Close the figure to free memory
     
     def generate_question_analysis_report(self, output_file: str = None) -> str:
         """Generate a comprehensive report of question analysis."""

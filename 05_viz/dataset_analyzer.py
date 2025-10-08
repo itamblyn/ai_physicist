@@ -8,6 +8,8 @@ the various physics training datasets in the AI Physicist project.
 
 import json
 import os
+import matplotlib
+matplotlib.use('Agg')  # Use non-interactive backend for saving files
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -245,7 +247,7 @@ class DatasetAnalyzer:
             'unsolvable_ratio': len(unsolvable_data) / (len(unsolvable_data) + len(solvability_data))
         }
     
-    def plot_dataset_overview(self, save_path: str = None):
+    def plot_dataset_overview(self, save_path: str = None, show_plot: bool = False):
         """Create an overview plot of all datasets."""
         extraneous_analysis = self.analyze_extraneous_dataset()
         unsolvable_analysis = self.analyze_unsolvable_dataset()
@@ -342,9 +344,12 @@ class DatasetAnalyzer:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
             print(f"Overview plot saved to {save_path}")
         
-        plt.show()
+        if show_plot:
+            plt.show()
+        else:
+            plt.close()  # Close the figure to free memory
     
-    def plot_category_comparison(self, save_path: str = None):
+    def plot_category_comparison(self, save_path: str = None, show_plot: bool = False):
         """Compare categories across all datasets."""
         extraneous_analysis = self.analyze_extraneous_dataset()
         unsolvable_analysis = self.analyze_unsolvable_dataset()
@@ -385,7 +390,10 @@ class DatasetAnalyzer:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
             print(f"Category comparison plot saved to {save_path}")
         
-        plt.show()
+        if show_plot:
+            plt.show()
+        else:
+            plt.close()  # Close the figure to free memory
     
     def generate_report(self, output_file: str = None) -> str:
         """Generate a comprehensive text report of dataset analysis."""

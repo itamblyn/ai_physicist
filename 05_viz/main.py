@@ -118,12 +118,14 @@ Examples:
         if not args.report_only:
             print("Generating dataset overview...")
             dataset_analyzer.plot_dataset_overview(
-                os.path.join(args.output_dir, 'dataset_overview.png')
+                os.path.join(args.output_dir, 'dataset_overview.png'),
+                show_plot=False
             )
             
             print("Generating category comparison...")
             dataset_analyzer.plot_category_comparison(
-                os.path.join(args.output_dir, 'category_comparison.png')
+                os.path.join(args.output_dir, 'category_comparison.png'),
+                show_plot=False
             )
         
         print("Generating dataset analysis report...")
@@ -141,27 +143,31 @@ Examples:
             print("Generating RL training progress...")
             rl_visualizer.plot_training_progress(
                 args.model,
-                os.path.join(args.output_dir, 'rl_training_progress.png')
+                os.path.join(args.output_dir, 'rl_training_progress.png'),
+                show_plot=False
             )
             
             if args.compare_models:
                 print("Comparing RL models...")
                 rl_visualizer.compare_models(
-                    save_path=os.path.join(args.output_dir, 'rl_model_comparison.png')
+                    save_path=os.path.join(args.output_dir, 'rl_model_comparison.png'),
+                    show_plot=False
                 )
             
             if args.learning_curves:
                 print("Generating learning curves...")
                 rl_visualizer.plot_learning_curves(
                     args.model,
-                    save_path=os.path.join(args.output_dir, 'rl_learning_curves.png')
+                    save_path=os.path.join(args.output_dir, 'rl_learning_curves.png'),
+                    show_plot=False
                 )
             
             if args.q_analysis:
                 print("Analyzing Q-table...")
                 rl_visualizer.analyze_q_table(
                     args.model,
-                    save_path=os.path.join(args.output_dir, 'rl_q_table_analysis.png')
+                    save_path=os.path.join(args.output_dir, 'rl_q_table_analysis.png'),
+                    show_plot=False
                 )
         
         print("Generating RL performance report...")
@@ -180,25 +186,29 @@ Examples:
             if args.difficulty or args.all:
                 print("Generating difficulty distribution...")
                 question_analyzer.plot_question_difficulty_distribution(
-                    os.path.join(args.output_dir, 'question_difficulty_distribution.png')
+                    os.path.join(args.output_dir, 'question_difficulty_distribution.png'),
+                    show_plot=False
                 )
             
             if args.concepts or args.all:
                 print("Generating physics concept usage...")
                 question_analyzer.plot_physics_concept_usage(
-                    os.path.join(args.output_dir, 'physics_concept_usage.png')
+                    os.path.join(args.output_dir, 'physics_concept_usage.png'),
+                    show_plot=False
                 )
             
             if args.complexity or args.all:
                 print("Generating complexity heatmap...")
                 question_analyzer.plot_question_complexity_heatmap(
-                    os.path.join(args.output_dir, 'question_complexity_heatmap.png')
+                    os.path.join(args.output_dir, 'question_complexity_heatmap.png'),
+                    show_plot=False
                 )
             
             if args.text_length or args.all:
                 print("Generating text length analysis...")
                 question_analyzer.plot_text_length_analysis(
-                    os.path.join(args.output_dir, 'question_text_length_analysis.png')
+                    os.path.join(args.output_dir, 'question_text_length_analysis.png'),
+                    show_plot=False
                 )
         
         print("Generating question analysis report...")
@@ -216,12 +226,14 @@ Examples:
             print(f"Creating {args.dashboard} dashboard...")
             if args.dashboard == 'comprehensive':
                 dashboard.create_comprehensive_dashboard(
-                    os.path.join(args.output_dir, 'comprehensive_dashboard.png')
+                    os.path.join(args.output_dir, 'comprehensive_dashboard.png'),
+                    show_plot=False
                 )
             else:
                 dashboard.create_focused_dashboard(
                     args.dashboard,
-                    os.path.join(args.output_dir, f'{args.dashboard}_dashboard.png')
+                    os.path.join(args.output_dir, f'{args.dashboard}_dashboard.png'),
+                    show_plot=False
                 )
         
         print("Generating dashboard report...")

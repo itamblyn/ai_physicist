@@ -6,6 +6,8 @@ This module provides a comprehensive dashboard for visualizing training performa
 model comparisons, and dataset statistics in a unified interface.
 """
 
+import matplotlib
+matplotlib.use('Agg')  # Use non-interactive backend for saving files
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -39,7 +41,7 @@ class PerformanceDashboard:
         plt.style.use('seaborn-v0_8')
         sns.set_palette("husl")
     
-    def create_comprehensive_dashboard(self, save_path: str = None):
+    def create_comprehensive_dashboard(self, save_path: str = None, show_plot: bool = False):
         """Create a comprehensive dashboard with all key metrics."""
         fig = plt.figure(figsize=(20, 16))
         fig.suptitle('AI Physicist Training Performance Dashboard', fontsize=20, fontweight='bold')
@@ -79,7 +81,10 @@ class PerformanceDashboard:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
             print(f"Comprehensive dashboard saved to {save_path}")
         
-        plt.show()
+        if show_plot:
+            plt.show()
+        else:
+            plt.close()  # Close the figure to free memory
     
     def _plot_dataset_overview(self, ax):
         """Plot dataset overview statistics."""
@@ -339,18 +344,18 @@ class PerformanceDashboard:
                    ha='center', va='center', transform=ax.transAxes)
             ax.set_title('Training Summary (Error)', fontweight='bold')
     
-    def create_focused_dashboard(self, focus: str, save_path: str = None):
+    def create_focused_dashboard(self, focus: str, save_path: str = None, show_plot: bool = False):
         """Create a focused dashboard for specific analysis."""
         if focus == 'datasets':
-            self._create_dataset_focused_dashboard(save_path)
+            self._create_dataset_focused_dashboard(save_path, show_plot)
         elif focus == 'rl':
-            self._create_rl_focused_dashboard(save_path)
+            self._create_rl_focused_dashboard(save_path, show_plot)
         elif focus == 'questions':
-            self._create_question_focused_dashboard(save_path)
+            self._create_question_focused_dashboard(save_path, show_plot)
         else:
             print(f"Unknown focus: {focus}. Available options: datasets, rl, questions")
     
-    def _create_dataset_focused_dashboard(self, save_path: str = None):
+    def _create_dataset_focused_dashboard(self, save_path: str = None, show_plot: bool = False):
         """Create a dataset-focused dashboard."""
         fig, axes = plt.subplots(2, 2, figsize=(16, 12))
         fig.suptitle('Dataset Analysis Dashboard', fontsize=16, fontweight='bold')
@@ -399,9 +404,12 @@ class PerformanceDashboard:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
             print(f"Dataset-focused dashboard saved to {save_path}")
         
-        plt.show()
+        if show_plot:
+            plt.show()
+        else:
+            plt.close()  # Close the figure to free memory
     
-    def _create_rl_focused_dashboard(self, save_path: str = None):
+    def _create_rl_focused_dashboard(self, save_path: str = None, show_plot: bool = False):
         """Create an RL-focused dashboard."""
         fig, axes = plt.subplots(2, 2, figsize=(16, 12))
         fig.suptitle('RL Training Dashboard', fontsize=16, fontweight='bold')
@@ -454,9 +462,12 @@ class PerformanceDashboard:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
             print(f"RL-focused dashboard saved to {save_path}")
         
-        plt.show()
+        if show_plot:
+            plt.show()
+        else:
+            plt.close()  # Close the figure to free memory
     
-    def _create_question_focused_dashboard(self, save_path: str = None):
+    def _create_question_focused_dashboard(self, save_path: str = None, show_plot: bool = False):
         """Create a question-focused dashboard."""
         fig, axes = plt.subplots(2, 2, figsize=(16, 12))
         fig.suptitle('Question Analysis Dashboard', fontsize=16, fontweight='bold')
@@ -507,7 +518,10 @@ class PerformanceDashboard:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
             print(f"Question-focused dashboard saved to {save_path}")
         
-        plt.show()
+        if show_plot:
+            plt.show()
+        else:
+            plt.close()  # Close the figure to free memory
     
     def generate_dashboard_report(self, output_file: str = None) -> str:
         """Generate a comprehensive dashboard report."""
