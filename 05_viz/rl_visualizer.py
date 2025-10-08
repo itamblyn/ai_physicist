@@ -70,9 +70,9 @@ class RLVisualizer:
         if not model_data:
             return
         
-        # Extract training data
-        training_accuracy = getattr(model_data, 'training_accuracy', [])
-        training_rewards = getattr(model_data, 'training_rewards', [])
+        # Extract training data (handle both dict and object attributes)
+        training_accuracy = model_data.get('training_accuracy', []) if isinstance(model_data, dict) else getattr(model_data, 'training_accuracy', [])
+        training_rewards = model_data.get('training_rewards', []) if isinstance(model_data, dict) else getattr(model_data, 'training_rewards', [])
         
         if not training_accuracy and not training_rewards:
             print(f"No training data found in {model_file}")
@@ -171,7 +171,7 @@ class RLVisualizer:
         
         # Plot accuracy comparison
         for i, (model_name, data) in enumerate(model_data.items()):
-            training_accuracy = getattr(data, 'training_accuracy', [])
+            training_accuracy = data.get('training_accuracy', []) if isinstance(data, dict) else getattr(data, 'training_accuracy', [])
             if training_accuracy:
                 episodes = range(0, len(training_accuracy) * 10, 10)
                 axes[0, 0].plot(episodes, training_accuracy, color=colors[i], linewidth=2, alpha=0.8, label=model_name)
@@ -184,7 +184,7 @@ class RLVisualizer:
         
         # Plot reward comparison
         for i, (model_name, data) in enumerate(model_data.items()):
-            training_rewards = getattr(data, 'training_rewards', [])
+            training_rewards = data.get('training_rewards', []) if isinstance(data, dict) else getattr(data, 'training_rewards', [])
             if training_rewards:
                 episodes = range(0, len(training_rewards) * 10, 10)
                 axes[0, 1].plot(episodes, training_rewards, color=colors[i], linewidth=2, alpha=0.8, label=model_name)
@@ -201,8 +201,8 @@ class RLVisualizer:
         model_names = []
         
         for model_name, data in model_data.items():
-            training_accuracy = getattr(data, 'training_accuracy', [])
-            training_rewards = getattr(data, 'training_rewards', [])
+            training_accuracy = data.get('training_accuracy', []) if isinstance(data, dict) else getattr(data, 'training_accuracy', [])
+            training_rewards = data.get('training_rewards', []) if isinstance(data, dict) else getattr(data, 'training_rewards', [])
             
             if training_accuracy:
                 final_accuracies.append(training_accuracy[-1])
@@ -247,8 +247,8 @@ class RLVisualizer:
         if not model_data:
             return
         
-        training_accuracy = getattr(model_data, 'training_accuracy', [])
-        training_rewards = getattr(model_data, 'training_rewards', [])
+        training_accuracy = model_data.get('training_accuracy', []) if isinstance(model_data, dict) else getattr(model_data, 'training_accuracy', [])
+        training_rewards = model_data.get('training_rewards', []) if isinstance(model_data, dict) else getattr(model_data, 'training_rewards', [])
         
         if not training_accuracy and not training_rewards:
             print(f"No training data found in {model_file}")
@@ -327,7 +327,7 @@ class RLVisualizer:
         if not model_data:
             return
         
-        q_table = getattr(model_data, 'q_table', {})
+        q_table = model_data.get('q_table', {}) if isinstance(model_data, dict) else getattr(model_data, 'q_table', {})
         if not q_table:
             print(f"No Q-table found in {model_file}")
             return
@@ -419,9 +419,9 @@ class RLVisualizer:
         if not model_data:
             return f"Could not load model {model_file}"
         
-        training_accuracy = getattr(model_data, 'training_accuracy', [])
-        training_rewards = getattr(model_data, 'training_rewards', [])
-        q_table = getattr(model_data, 'q_table', {})
+        training_accuracy = model_data.get('training_accuracy', []) if isinstance(model_data, dict) else getattr(model_data, 'training_accuracy', [])
+        training_rewards = model_data.get('training_rewards', []) if isinstance(model_data, dict) else getattr(model_data, 'training_rewards', [])
+        q_table = model_data.get('q_table', {}) if isinstance(model_data, dict) else getattr(model_data, 'q_table', {})
         
         report = []
         report.append("=" * 60)
@@ -485,7 +485,7 @@ class RLVisualizer:
         report.append("MODEL PARAMETERS")
         report.append("-" * 40)
         for attr in ['learning_rate', 'discount_factor', 'epsilon', 'epsilon_decay', 'epsilon_min']:
-            value = getattr(model_data, attr, 'N/A')
+            value = model_data.get(attr, 'N/A') if isinstance(model_data, dict) else getattr(model_data, attr, 'N/A')
             report.append(f"{attr}: {value}")
         
         report_text = "\n".join(report)
