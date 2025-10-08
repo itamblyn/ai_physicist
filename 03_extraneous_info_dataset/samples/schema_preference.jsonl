@@ -1,0 +1,1 @@
+{"category": "str", "prompt": "str", "chosen": {"reasoning": "str", "answer": "str", "uses_extraneous": "bool", "correct": "bool"}, "rejected": {"reasoning": "str", "answer": "str", "uses_extraneous": "bool", "correct": "bool"}, "metadata": "Dict[str, Any]"}

@@ -1,0 +1,1 @@
+{"category": "str", "prompt": "str", "important_facts": "List[str]", "extraneous_facts": "List[str]", "solution_steps": "List[str]", "final_answer": "str", "metadata": "Dict[str, Any]"}

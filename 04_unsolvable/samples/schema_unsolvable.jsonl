@@ -1,0 +1,1 @@
+{"category": "str", "prompt": "str", "important_facts": "List[str]", "inconsistent_facts": "List[str]", "inconsistencies": [{"type": "str", "field": "str", "value_a": "str", "value_b": "str", "units": "str", "description": "str"}], "rationale": "str", "label": "inconsistent", "metadata": "Dict[str, Any]"}
