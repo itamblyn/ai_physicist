@@ -132,6 +132,36 @@ Each module contains detailed documentation:
 - **[04_unsolvable/README.md](04_unsolvable/README.md)**: Unsolvable problem creation guide
 - **[CODE_REVIEW.md](CODE_REVIEW.md)**: Detailed code analysis and improvement roadmap
 
+## 🧪 **Testing**
+
+The project includes a comprehensive testing framework with unit tests, integration tests, and regression tests.
+
+### **Quick Start**
+
+```bash
+# Run all tests
+python run_tests.py
+
+# Run specific test types
+python run_tests.py --type unit
+python run_tests.py --type integration
+python run_tests.py --type regression
+
+# Run with coverage
+python run_tests.py --coverage
+
+# Run with linting
+python run_tests.py --lint
+```
+
+### **Test Categories**
+
+- **Unit Tests**: Test individual components in isolation
+- **Integration Tests**: Test complete workflows end-to-end
+- **Regression Tests**: Ensure data consistency and prevent regressions
+
+For detailed testing documentation, see [TEST.md](TEST.md).
+
 ## 🛠️ **Development**
 
 ### **Current Status**
@@ -142,12 +172,11 @@ This project is in **active development** with a focus on educational applicatio
 
 - Limited to basic mechanics problems
 - Q-table RL approach has scalability constraints
-- Missing comprehensive testing framework
 - No configuration management system
 
 ### **Roadmap**
 
-- [ ] Implement comprehensive testing suite
+- [x] Implement comprehensive testing suite
 - [ ] Add type hints and improve error handling
 - [ ] Transition to deep reinforcement learning
 - [ ] Expand physics coverage beyond mechanics
@@ -158,11 +187,11 @@ This project is in **active development** with a focus on educational applicatio
 
 We welcome contributions! Areas where help is needed:
 
-1. **Testing**: Add unit tests and integration tests
-2. **Physics**: Expand to new domains (thermodynamics, waves, optics)
-3. **AI**: Improve RL algorithms and LLM integration
-4. **Documentation**: Enhance tutorials and examples
-5. **UI/UX**: Create web interface for easier interaction
+1. **Physics**: Expand to new domains (thermodynamics, waves, optics)
+2. **AI**: Improve RL algorithms and LLM integration
+3. **Documentation**: Enhance tutorials and examples
+4. **UI/UX**: Create web interface for easier interaction
+5. **Testing**: Expand test coverage and add performance benchmarks
 
 ### **Development Setup**
 

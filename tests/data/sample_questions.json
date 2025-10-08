@@ -1,0 +1,20 @@
+[
+  {
+    "question": "A car travels 100 meters in 10 seconds at constant speed. What is the car's velocity?",
+    "solution": "Solution:\nUsing the formula: velocity = distance / time\nv = 100 m / 10 s = 10.00 m/s\n\nAnswer: 10.00 m/s",
+    "answer": "10.00 m/s",
+    "type": "kinematics_velocity"
+  },
+  {
+    "question": "A 5 kg object accelerates at 2 m/s². What is the net force acting on the object?",
+    "solution": "Solution:\nUsing Newton's Second Law: Force = mass × acceleration\nF = 5 kg × 2 m/s² = 10 N\n\nAnswer: 10 N",
+    "answer": "10 N",
+    "type": "force_newton_second"
+  },
+  {
+    "question": "A 2 kg object is moving at 5 m/s. What is its kinetic energy?",
+    "solution": "Solution:\nUsing the formula: Kinetic Energy = ½ × mass × velocity²\nKE = ½ × 2 kg × (5 m/s)²\nKE = ½ × 2 × 25\nKE = 25.00 J\n\nAnswer: 25.00 J",
+    "answer": "25.00 J",
+    "type": "kinetic_energy"
+  }
+]
