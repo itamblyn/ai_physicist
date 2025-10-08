@@ -1,7 +1,15 @@
-Inconsistent/Unsolvable Physics Dataset
+Unsolvable vs Physically Inconsistent Generators
+================================================
+
+This directory contains two distinct generators:
+
+- Physically inconsistent problems: Introduces explicit contradictions or unit conflicts so the problem cannot be correct as stated. Run `generate_inconsistent_dataset.py`. Outputs `unsolvable.jsonl` and `schema_unsolvable.jsonl` in `04_unsolvable/samples`.
+- Solvability-labeled problems: Mix of solvable and deliberately-unsolvable variants, labeled with a binary `solvable` field. Run `generate_solvability_dataset.py`. Outputs `solvability.jsonl` and `schema_solvability.jsonl` in `04_unsolvable/samples`.
+
+Physically Inconsistent Physics Dataset
 =======================================
 
-This module generates physics problems that contain internal inconsistencies (contradictory numerical values, mutually exclusive statements, or mismatched units). These are intended for training/evaluating LLMs to detect and explain inconsistencies rather than solve the problem numerically.
+This generator produces physics problems that contain internal inconsistencies (contradictory numerical values, mutually exclusive statements, or mismatched units). These are intended for training/evaluating LLMs to detect and explain inconsistencies rather than solve the problem numerically.
 
 Quick start
 -----------
