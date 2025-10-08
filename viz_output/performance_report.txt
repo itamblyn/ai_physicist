@@ -1,0 +1,20 @@
+============================================================
+RL MODEL PERFORMANCE REPORT - physics_rl_model_final.pkl
+============================================================
+
+Q-TABLE STATISTICS
+----------------------------------------
+Total state-action pairs: 3930
+Unique states: 8
+Mean Q-value: 0.0121
+Std Q-value: 0.0502
+Min Q-value: -0.0190
+Max Q-value: 0.9354
+
+MODEL PARAMETERS
+----------------------------------------
+learning_rate: 0.1
+discount_factor: 0.9
+epsilon: 0.01
+epsilon_decay: N/A
+epsilon_min: N/A
