@@ -1,297 +1,192 @@
-# AI Physicist
+# AI Physicist 🤖⚛️
 
-A comprehensive toolkit for training and evaluating AI systems on physics problem-solving tasks. This project provides multiple approaches to creating AI physics tutors, from basic question generation to advanced reinforcement learning systems and specialized datasets for training robust physics-solving models.
+An educational AI system that generates physics problems and trains reinforcement learning agents to solve them. This project combines physics education with modern AI techniques to create an intelligent tutoring system.
 
-## 🎯 Project Overview
+## 🎯 **Project Overview**
 
-AI Physicist is designed as an educational and research platform that demonstrates various approaches to automated physics problem-solving:
+The AI Physicist project explores how artificial intelligence can learn to solve physics problems through reinforcement learning, while also generating diverse datasets for training and evaluation. The system covers undergraduate-level mechanics problems and provides tools for creating specialized training datasets.
 
-- **Question Generation**: Automated creation of physics problems with step-by-step solutions
-- **Reinforcement Learning**: Training agents to learn physics through trial and error
-- **Dataset Creation**: Specialized datasets for training robust AI systems
-- **Educational Applications**: Interactive physics tutoring systems
+### **Key Features**
 
-## 📁 Project Structure
+- 🔬 **Physics Problem Generation**: Automated creation of mechanics problems with step-by-step solutions
+- 🧠 **Hybrid AI Agents**: Reinforcement learning agents enhanced with large language models
+- 📊 **Specialized Datasets**: Tools for generating problems with extraneous information and unsolvable scenarios
+- 🎓 **Educational Focus**: Designed with pedagogical principles for effective learning
+
+## 📁 **Project Structure**
 
 ```
 ai_physicist/
-├── 01_generate_questions/     # Physics question generator with solutions
-├── 02_baseline/              # Reinforcement learning baseline system
+├── 01_generate_questions/     # Core physics problem generator
+├── 02_baseline/              # RL agents and training system
 ├── 03_extraneous_info_dataset/  # Dataset with irrelevant information
 ├── 04_unsolvable/            # Inconsistent and unsolvable problems
 ├── requirements.txt          # Python dependencies
-└── README.md                # This file
+├── CODE_REVIEW.md           # Detailed code analysis and recommendations
+└── README.md               # This file
 ```
 
-## 🚀 Quick Start
+### **Module Progression**
 
-### Installation
+1. **Start Here**: `01_generate_questions/` - Learn how physics problems are generated
+2. **Core System**: `02_baseline/` - Explore the RL training system
+3. **Advanced Datasets**: `03_extraneous_info_dataset/` - Generate robust training data
+4. **Research Tools**: `04_unsolvable/` - Create challenging evaluation scenarios
 
-```bash
-# Clone the repository
-git clone <repository-url>
-cd ai_physicist
+## 🚀 **Quick Start**
 
-# Install dependencies
-pip install -r requirements.txt
+### **Prerequisites**
 
-# For LLM integration (optional)
-export OPENAI_API_KEY="your-api-key-here"
-```
-
-### Basic Usage
-
-```bash
-# Generate physics questions
-python 01_generate_questions/physics_question_generator.py
-
-# Train a reinforcement learning agent
-python 02_baseline/demo_rl_training.py
-
-# Create specialized datasets
-python 03_extraneous_info_dataset/generate_extraneous_dataset.py --count 100
-python 04_unsolvable/generate_inconsistent_dataset.py --count 50
-```
-
-## 📚 Modules
-
-### 1. Question Generator (`01_generate_questions/`)
-
-**Purpose**: Generate educational physics problems with detailed solutions
-
-**Features**:
-- 8 fundamental physics question types (kinematics, forces, energy, etc.)
-- Randomized parameters for variety
-- Step-by-step solutions with proper units
-- Interactive command-line interface
-
-**Question Types**:
-- Kinematics (velocity, acceleration, displacement)
-- Newton's Laws (force calculations)
-- Energy (kinetic and potential energy)
-- Work-Energy theorem
-- Simple collisions
-
-**Usage**:
-```bash
-cd 01_generate_questions/
-python physics_question_generator.py  # Interactive mode
-python demo_physics_questions.py      # Demo all types
-```
-
-### 2. Baseline RL System (`02_baseline/`)
-
-**Purpose**: Train AI agents to answer physics questions using reinforcement learning
-
-**Features**:
-- Q-learning agent with epsilon-greedy exploration
-- LLM-enhanced agents using OpenAI API
-- Interactive training demos with visualization
-- Model persistence and evaluation tools
-- Comprehensive test suite
-
-**Key Components**:
-- `PhysicsRLEnvironment`: Manages questions and rewards
-- `QLearningAgent`: Traditional Q-learning implementation
-- `LLMRLAgent`: LLM-enhanced learning with context
-- `PhysicsAnswerGenerator`: Creates multiple choice options
-
-**Usage**:
-```bash
-cd 02_baseline/
-python rl_physics_agent.py           # Basic Q-learning
-python llm_rl_agent.py              # LLM-enhanced training
-python demo_rl_training.py          # Interactive demo
-```
-
-**Performance**: Achieves 80-90% accuracy after 10,000 training episodes
-
-### 3. Extraneous Info Dataset (`03_extraneous_info_dataset/`)
-
-**Purpose**: Create datasets with irrelevant information to train robust AI systems
-
-**Features**:
-- Physics problems with extraneous details (colors, names, ambient conditions)
-- Supervised learning format (JSONL)
-- Preference pairs for RLHF/DPO training
-- Multiple physics categories (mechanics, circuits)
-
-**Output Formats**:
-- `supervised.jsonl`: Standard training format with solutions
-- `preference.jsonl`: Preference pairs (chosen vs rejected responses)
-- Schema files for data validation
-
-**Usage**:
-```bash
-cd 03_extraneous_info_dataset/
-python generate_extraneous_dataset.py --count 100 --outdir samples/
-```
-
-**Applications**:
-- Fine-tuning language models to ignore irrelevant information
-- Training reward models for RLHF
-- Evaluating robustness to distractors
-
-### 4. Unsolvable Problems (`04_unsolvable/`)
-
-**Purpose**: Generate inconsistent and unsolvable physics problems for robustness testing
-
-**Features**:
-- **Inconsistent Problems**: Internal contradictions and unit conflicts
-- **Solvability Labels**: Binary classification of problem solvability
-- Length normalization to prevent trivial solutions
-- Detailed inconsistency annotations
-
-**Two Generators**:
-1. **Inconsistent Dataset**: Problems with explicit contradictions
-2. **Solvability Dataset**: Mix of solvable/unsolvable with binary labels
-
-**Usage**:
-```bash
-cd 04_unsolvable/
-python generate_inconsistent_dataset.py --count 50 --outdir samples/
-python generate_solvability_dataset.py --count 200 --outdir samples/
-```
-
-**Applications**:
-- Training models to detect inconsistencies
-- Robustness evaluation
-- Problem validation systems
-
-## 🎓 Educational Applications
-
-### For Students
-- **Interactive Problem Solving**: Get instant feedback on physics problems
-- **Step-by-Step Solutions**: Learn proper problem-solving techniques
-- **Adaptive Learning**: RL agents that improve with practice
-
-### For Educators
-- **Question Generation**: Create unlimited practice problems
-- **Assessment Tools**: Evaluate student understanding
-- **Curriculum Design**: Progressive difficulty levels
-
-### For Researchers
-- **AI Training**: Multiple approaches to physics problem-solving
-- **Dataset Creation**: Specialized datasets for robustness research
-- **Benchmarking**: Standardized evaluation metrics
-
-## 🔬 Research Applications
-
-### Machine Learning Research
-- **Reinforcement Learning**: Educational domain for RL algorithms
-- **Robustness Testing**: Datasets with distractors and inconsistencies
-- **Multi-Modal Learning**: Combining symbolic and neural approaches
-
-### Physics Education Research
-- **Automated Tutoring**: AI-powered physics instruction
-- **Misconception Detection**: Identifying common student errors
-- **Adaptive Assessment**: Personalized difficulty adjustment
-
-### AI Safety Research
-- **Consistency Checking**: Detecting contradictory information
-- **Robustness Evaluation**: Performance under adversarial conditions
-- **Alignment Research**: Training AI to focus on relevant information
-
-## 📊 Performance Metrics
-
-### Question Generator
-- **Coverage**: 8 fundamental physics concepts
-- **Accuracy**: Mathematically verified solutions
-- **Variety**: Randomized parameters prevent memorization
-
-### RL System
-- **Learning Efficiency**: 80-90% accuracy in 10K episodes
-- **Robustness**: Handles all question types
-- **Scalability**: Modular design for easy extension
-
-### Datasets
-- **Scale**: Configurable from 50 to 10,000+ problems
-- **Quality**: Verified physics with controlled inconsistencies
-- **Format**: Standard JSONL for ML pipelines
-
-## 🛠️ Technical Details
-
-### Dependencies
-```
-numpy>=1.21.0      # Numerical computations
-matplotlib>=3.5.0  # Visualization
-openai>=1.0.0      # LLM integration (optional)
-```
-
-### System Requirements
 - Python 3.8+
-- 4GB RAM (for large dataset generation)
-- OpenAI API key (for LLM features)
+- OpenAI API key (for LLM-enhanced agents)
 
-### Architecture
-- **Modular Design**: Independent components for easy extension
-- **Standard Formats**: JSONL output for ML compatibility
-- **Configurable**: Command-line arguments for all parameters
-- **Extensible**: Clear patterns for adding new question types
+### **Installation**
 
-## 🔧 Extending the System
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/yourusername/ai_physicist.git
+   cd ai_physicist
+   ```
 
-### Adding New Question Types
-1. **Question Generator**: Add methods to `PhysicsQuestionGenerator`
-2. **RL Environment**: Update state encoding for new types
-3. **Answer Generation**: Create plausible wrong answers
-4. **Dataset Generators**: Include in specialized datasets
+2. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-### Custom Learning Algorithms
-- Replace Q-learning with deep RL methods
-- Implement curriculum learning
-- Add multi-agent systems
-- Integrate with modern LLM architectures
+3. **Set up OpenAI API** (optional, for LLM features):
+   ```bash
+   export OPENAI_API_KEY="your-api-key-here"
+   ```
 
-### New Dataset Types
-- Multi-step problems
-- Visual physics problems
-- Cross-domain transfer
-- Temporal reasoning tasks
+### **Basic Usage**
 
-## 📈 Future Enhancements
+#### **Generate Physics Problems**
+```bash
+cd 01_generate_questions
+python demo_physics_questions.py
+```
 
-### Planned Features
-- **Deep Learning Integration**: Neural network-based agents
-- **Visual Problem Solving**: Diagram interpretation
-- **Multi-Step Reasoning**: Complex, multi-part problems
-- **Explanation Generation**: Detailed solution explanations
+#### **Train RL Agent**
+```bash
+cd 02_baseline
+python demo_rl_training.py
+```
 
-### Research Directions
-- **Meta-Learning**: Learning to learn new physics concepts
-- **Transfer Learning**: Cross-domain knowledge application
-- **Collaborative Learning**: Multi-agent problem solving
-- **Uncertainty Quantification**: Confidence in solutions
+#### **Generate Specialized Datasets**
+```bash
+cd 03_extraneous_info_dataset
+python generate_extraneous_dataset.py --num_problems 100
 
-## 🤝 Contributing
+cd 04_unsolvable
+python generate_inconsistent_dataset.py --num_problems 50
+```
 
-We welcome contributions! Areas of particular interest:
+## 🔬 **Physics Coverage**
 
-1. **New Question Types**: Expand physics coverage
-2. **Advanced RL**: Modern deep RL algorithms
-3. **Evaluation Metrics**: Better assessment methods
-4. **Educational Tools**: User interface improvements
-5. **Documentation**: Examples and tutorials
+The system currently supports these mechanics topics:
 
-### Development Guidelines
-- Maintain modular architecture
-- Add comprehensive tests
-- Update documentation
-- Follow existing code patterns
-- Consider educational applications
+- **Kinematics**: Velocity, acceleration, motion equations
+- **Dynamics**: Newton's laws, force calculations
+- **Energy**: Kinetic energy, potential energy, work
+- **Momentum**: Conservation of momentum, collisions
+- **Circuits**: Basic electrical circuits (Ohm's law, power)
 
-## 📄 License
+## 🤖 **AI Approaches**
 
-This project is open-source and available under [appropriate license]. See LICENSE file for details.
+### **Reinforcement Learning Agents**
 
-## 🙏 Acknowledgments
+1. **Traditional Q-Learning**: Tabular approach for discrete problem spaces
+2. **LLM-Enhanced RL**: Hybrid system combining neural language models with RL
+3. **Multi-Agent Training**: Comparative learning between different approaches
 
-This project demonstrates the intersection of AI and physics education, inspired by the need for intelligent tutoring systems and robust AI training methods.
+### **Training Features**
 
-## 📞 Contact
+- Interactive learning environment
+- Reward shaping for educational objectives
+- Performance tracking and visualization
+- Model persistence and evaluation
 
-For questions, suggestions, or collaborations, please open an issue on the project repository.
+## 📊 **Dataset Generation**
+
+### **Extraneous Information Dataset**
+Creates solvable physics problems with intentionally irrelevant details to train models to focus on relevant information.
+
+**Example**:
+```
+Original: "A 5kg object moves at 10 m/s. What is its kinetic energy?"
+With Extraneous Info: "A red 5kg ball, owned by Sarah, moves at 10 m/s on a sunny Tuesday. What is its kinetic energy?"
+```
+
+### **Unsolvable Problems Dataset**
+Generates two types of challenging problems:
+- **Inconsistent**: Problems with contradictory information
+- **Insufficient Information**: Problems missing key data for solution
+
+## 📖 **Documentation**
+
+Each module contains detailed documentation:
+
+- **[01_generate_questions/README.md](01_generate_questions/README.md)**: Complete API documentation for problem generation
+- **[02_baseline/README.md](02_baseline/README.md)**: Comprehensive RL system guide
+- **[03_extraneous_info_dataset/README.md](03_extraneous_info_dataset/README.md)**: Dataset generation methodology
+- **[04_unsolvable/README.md](04_unsolvable/README.md)**: Unsolvable problem creation guide
+- **[CODE_REVIEW.md](CODE_REVIEW.md)**: Detailed code analysis and improvement roadmap
+
+## 🛠️ **Development**
+
+### **Current Status**
+
+This project is in **active development** with a focus on educational applications and AI research. See [CODE_REVIEW.md](CODE_REVIEW.md) for detailed analysis and improvement recommendations.
+
+### **Known Limitations**
+
+- Limited to basic mechanics problems
+- Q-table RL approach has scalability constraints
+- Missing comprehensive testing framework
+- No configuration management system
+
+### **Roadmap**
+
+- [ ] Implement comprehensive testing suite
+- [ ] Add type hints and improve error handling
+- [ ] Transition to deep reinforcement learning
+- [ ] Expand physics coverage beyond mechanics
+- [ ] Add configuration management system
+- [ ] Create web-based interface
+
+## 🤝 **Contributing**
+
+We welcome contributions! Areas where help is needed:
+
+1. **Testing**: Add unit tests and integration tests
+2. **Physics**: Expand to new domains (thermodynamics, waves, optics)
+3. **AI**: Improve RL algorithms and LLM integration
+4. **Documentation**: Enhance tutorials and examples
+5. **UI/UX**: Create web interface for easier interaction
+
+### **Development Setup**
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature-name`
+3. Make your changes and add tests
+4. Submit a pull request
+
+## 📄 **License**
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 **Acknowledgments**
+
+- Physics problem formulations based on standard undergraduate textbooks
+- Reinforcement learning approaches inspired by educational AI research
+- Dataset generation methodologies adapted from ML robustness literature
+
+## 📞 **Contact & Support**
+
+- **Issues**: Use GitHub Issues for bug reports and feature requests
+- **Discussions**: Use GitHub Discussions for questions and ideas
+- **Documentation**: Check module-specific READMEs for detailed usage
 
 ---
 
-**AI Physicist** - Where artificial intelligence meets physics education 🚀🔬
+**Note**: This project is designed for educational and research purposes. The AI agents are learning systems and may not always provide correct answers. Always verify physics solutions independently for critical applications.
